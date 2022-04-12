@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./style.module.css";
-
+import yinCry from "../../assets/yin_cry.png";
 interface ErrorProps {
     error?: string;
 }
@@ -15,7 +15,7 @@ const Error: React.FC<ErrorProps> = ({ error = "An error has occured" }) => {
                 </p>
             </div>
             <div className={styles.imgWrapper}>
-                <img className={styles.yin} src={"/images/yin_cry.png"} alt={"Sad Yin"} />
+                <img className={styles.yin} src={yinCry} alt={"Sad Yin"} />
             </div>
         </div>
     );
