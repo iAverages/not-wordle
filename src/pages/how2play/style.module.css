@@ -1,0 +1,22 @@
+.instructions {
+    height: 100%;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin: auto;
+}
+
+.section {
+    /* text-align: center; */
+    border-bottom: 1px solid #3a3a3c;
+    /* width: ; */
+    flex-grow: 1;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.exampleWord {
+    display: flex;
+}

@@ -1,0 +1,42 @@
+.box {
+    border: 1px solid #565758;
+
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: bold;
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: var(--tile-text-color);
+    text-transform: uppercase;
+    user-select: none;
+    margin: 0 0.2rem;
+}
+
+.text {
+    font-weight: bolder;
+    padding: 0.2rem;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.correct,
+.incorrect,
+.close {
+    border: 0;
+}
+
+.correct {
+    background-color: #538d4e;
+}
+
+.close {
+    background-color: #b59f3b;
+}
+.incorrect {
+    background-color: #3a3a3c;
+}

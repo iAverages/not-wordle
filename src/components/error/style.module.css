@@ -1,0 +1,40 @@
+:root {
+    --spacing: 10rem;
+}
+
+.error {
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    width: calc(100% - calc(var(--page-padding) * 2));
+}
+
+.yin {
+    height: 100%;
+    padding-left: var(--spacing);
+}
+
+.imgWrapper {
+    height: 100%;
+    width: 25%;
+}
+
+.messageWrapper {
+    border-right: 5px var(--primary) solid;
+    width: 25%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.message {
+    margin-right: var(--spacing);
+}
+
+.icon {
+    margin-right: 1rem;
+}
