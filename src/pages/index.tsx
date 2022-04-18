@@ -115,7 +115,7 @@ const Game: FC<GameMeta> = ({ word: initialWord }) => {
                     ))}
                     {currentGuess && <Guess guess={currentGuess} />}
 
-                    <RemainingGuesses amount={Math.max(0, word.length - guesses.length - (currentGuess ? 1 : 0))} />
+                    <RemainingGuesses amount={Math.max(0, maxGuesses - guesses.length - (currentGuess ? 1 : 0))} />
                 </div>
             )}
             <Keyboard handle={handleKeyPress} />
