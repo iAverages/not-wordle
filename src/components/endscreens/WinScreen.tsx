@@ -1,24 +1,12 @@
 import { FC } from "react";
-interface WinScreenProps {
+import EndScreen, { EndScreenProps } from "./EndScreen";
+
+interface WinScreenProps extends EndScreenProps {
     handle: () => void;
 }
 
 const WinScreen: FC<WinScreenProps> = ({ handle }) => {
-    return (
-        <div
-            style={{
-                position: "absolute",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100vw",
-                height: "100vh",
-            }}
-        >
-            <div>Share results</div>
-            <button onClick={handle}>Play again</button>
-        </div>
-    );
+    return <EndScreen handle={handle}>Well done, you guessed the word correctly.</EndScreen>;
 };
 
 export default WinScreen;

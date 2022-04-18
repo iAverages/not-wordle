@@ -1,3 +1,12 @@
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: hsla(0, 0%, 0%, 0.6);
+    width: 100vw;
+    height: 100vh;
+}
+
 .wrapper {
     position: absolute;
     display: flex;
@@ -5,6 +14,18 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    top: 0;
-    left: 0;
+    top: 25%;
+    left: 25%;
+    background-color: #121213;
+    width: 50%;
+    height: 50%;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.challenge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
