@@ -18,7 +18,7 @@ const How2Play: React.FC = () => {
                 onMouseLeave={() => setIsHover(false)}
                 icon="xmark"
                 size="lg"
-                onClick={() => navigate("/game")}
+                onClick={() => navigate("/")}
             />
             <section className={styles.section}>
                 <p>Guess the WORDLE in six tries.</p>
