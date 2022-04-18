@@ -6,6 +6,7 @@ import WinScreen from "../components/endscreens/WinScreen";
 import LoseScreen from "../components/endscreens/LoseScreen";
 import { calcScore, randomWord } from "../helpers";
 import Header from "../components/header";
+import Keyboard from "../components/keyboard";
 import { GameMeta, GuessMeta, LetterState } from "../interfaces/game";
 
 const Game: FC<GameMeta> = ({ word: initialWord }) => {
@@ -117,6 +118,7 @@ const Game: FC<GameMeta> = ({ word: initialWord }) => {
                     <RemainingGuesses amount={Math.max(0, word.length - guesses.length - (currentGuess ? 1 : 0))} />
                 </div>
             )}
+            <Keyboard handle={handleKeyPress} />
         </>
     );
 };
