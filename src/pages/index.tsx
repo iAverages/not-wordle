@@ -80,12 +80,13 @@ const Game: FC<GameMeta> = ({ word: initialWord }) => {
         setCurrentGuess((prev) => prev + e.key.toLowerCase());
     };
 
-    const handlePlayAgain = () => {
-        setWord(randomWord());
+    const handlePlayAgain = (newWord?: string) => {
+        setWord(newWord ? newWord : randomWord());
         setHasWon(false);
         setHasLose(false);
         setCurrentGuess("");
         setGuesses([]);
+        setGuessCount(0);
     };
 
     useEffect(() => {
