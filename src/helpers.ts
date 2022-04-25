@@ -25,15 +25,17 @@ export const calcScore = (guess: string, word: string) => {
 
         // Find char if in word that hasnt been found yet
         let indexOfPresentChar = 0;
+        let found = false;
         for (let index = 0; index < word.length; index++) {
             if (word.charAt(index) == letter && !charsTaken[index]) {
                 indexOfPresentChar = index;
+                found = true;
                 break;
             }
         }
 
         // If yes set yellow, else set grey
-        if (indexOfPresentChar > 0) {
+        if (found) {
             state[i] = LetterState.close;
             charsTaken[indexOfPresentChar] = true;
         } else {
