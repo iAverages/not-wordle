@@ -4,9 +4,10 @@ import styles from "./style.module.css";
 
 export interface EndScreenProps {
     handle: (word?: string | any) => void;
+    share: () => void;
 }
 
-const EndScreen: FC<EndScreenProps> = ({ handle, children }) => {
+const EndScreen: FC<EndScreenProps> = ({ handle, children, share }) => {
     const [newWord, setNewWord] = useState("");
     const [err, setErr] = useState("");
 
@@ -24,7 +25,7 @@ const EndScreen: FC<EndScreenProps> = ({ handle, children }) => {
             <div className={styles.backdrop}></div>
             <div className={styles.wrapper}>
                 {children}
-                <div>Share results</div>
+                <button onClick={share}>Share results</button>
                 <button onClick={handle}>Play again</button>
                 <div className={styles.challenge}>
                     <p>{err}</p>

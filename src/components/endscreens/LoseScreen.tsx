@@ -7,8 +7,12 @@ interface LoseScreenProps extends EndScreenProps {
     guesses: GuessMeta[];
 }
 
-const LoseScreen: FC<LoseScreenProps> = ({ handle, word }) => {
-    return <EndScreen handle={handle}>You did not guess the word in time, the word was {word}</EndScreen>;
+const LoseScreen: FC<LoseScreenProps> = ({ handle, word, share }) => {
+    return (
+        <EndScreen share={share} handle={handle}>
+            You did not guess the word in time, the word was {word}
+        </EndScreen>
+    );
 };
 
 export default LoseScreen;

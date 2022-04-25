@@ -89,6 +89,20 @@ const Game: FC<GameMeta> = ({ word: initialWord }) => {
         setGuessCount(0);
     };
 
+    const handleShare = () => {
+        let text = `Notworld!\n\n`;
+
+        for (const next of guesses) {
+            let a = next.letters.map((letter) => {
+                if (letter === LetterState.correct) return "🟩";
+                if (letter === LetterState.close) return "🟨";
+                if (letter === LetterState.incorrect) return "⬛";
+            });
+            text += `${a.join("")}\n`;
+        }
+        navigator.clipboard.writeText(text);
+    };
+
     useEffect(() => {
         document.addEventListener("keydown", handleKeyPress);
         return () => {
@@ -107,8 +121,8 @@ const Game: FC<GameMeta> = ({ word: initialWord }) => {
     return (
         <>
             <Header />
-            {hasLose && <LoseScreen handle={handlePlayAgain} word={word} guesses={guesses} />}
-            {hasWon && <WinScreen handle={handlePlayAgain} />}
+            {hasLose && <LoseScreen handle={handlePlayAgain} word={word} guesses={guesses} share={handleShare} />}
+            {hasWon && <WinScreen handle={handlePlayAgain} share={handleShare} />}
             {typeof word != "undefined" && (
                 <div className={styles.guesses}>
                     {guesses.map(({ guess, letters }, key) => (
