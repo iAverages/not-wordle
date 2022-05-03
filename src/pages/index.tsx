@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import Guess from "../components/guess";
 import RemainingGuesses from "../components/remainingGuesses";
 import styles from "./game.module.css";
@@ -90,17 +90,17 @@ const Game: FC<GameMeta> = ({ word: initialWord }) => {
     };
 
     const handleShare = () => {
-        let text = `Notworld!\n\n`;
-
+        let text = `Notworld! (${guessCount}/${word.length})\n\n`;
+        const squares = [];
         for (const next of guesses) {
-            let a = next.letters.map((letter) => {
+            let square = next.letters.map((letter) => {
                 if (letter === LetterState.correct) return "🟩";
                 if (letter === LetterState.close) return "🟨";
                 if (letter === LetterState.incorrect) return "⬛";
             });
-            text += `${a.join("")}\n`;
+            squares.push(square.join(""));
         }
-        navigator.clipboard.writeText(text);
+        navigator.clipboard.writeText(text + squares.join());
     };
 
     const calcUsedLetters = useCallback(() => {
