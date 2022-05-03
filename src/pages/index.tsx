@@ -103,6 +103,20 @@ const Game: FC<GameMeta> = ({ word: initialWord }) => {
         navigator.clipboard.writeText(text);
     };
 
+    const calcUsedLetters = useCallback(() => {
+        const used: Record<string, LetterState> = {};
+        for (const guess of guesses) {
+            for (const [k, v] of Object.entries(guess.letters)) {
+                const l = guess.guess.split("")[parseInt(k)];
+                if (v === LetterState.incorrect) continue;
+                if (used[k] && v === LetterState.correct) continue;
+                used[l] = v;
+            }
+        }
+
+        return used;
+    }, [guesses]);
+
     useEffect(() => {
         document.addEventListener("keydown", handleKeyPress);
         return () => {
@@ -126,14 +140,17 @@ const Game: FC<GameMeta> = ({ word: initialWord }) => {
             {typeof word != "undefined" && (
                 <div className={styles.guesses}>
                     {guesses.map(({ guess, letters }, key) => (
-                        <Guess key={key} guess={guess} state={letters} />
+                        <Guess key={key} guess={guess} state={letters} length={word.length} />
                     ))}
-                    {currentGuess && <Guess guess={currentGuess} />}
+                    {currentGuess && <Guess guess={currentGuess} length={word.length} />}
 
-                    <RemainingGuesses amount={Math.max(0, maxGuesses - guesses.length - (currentGuess ? 1 : 0))} />
+                    <RemainingGuesses
+                        amount={Math.max(0, maxGuesses - guesses.length - (currentGuess ? 1 : 0))}
+                        length={word.length}
+                    />
                 </div>
             )}
-            <Keyboard handle={handleKeyPress} />
+            <Keyboard handle={handleKeyPress} usedLetters={calcUsedLetters()} />
         </>
     );
 };

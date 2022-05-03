@@ -31,11 +31,11 @@
 }
 
 .correct {
-    background-color: #538d4e;
+    background-color: #538d4e !important;
 }
 
 .close {
-    background-color: #b59f3b;
+    background-color: #b59f3b !important;
 }
 .incorrect {
     background-color: #3a3a3c;

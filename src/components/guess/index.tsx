@@ -4,13 +4,21 @@ import { useEffect, useState } from "react";
 import { clamp } from "../../helpers";
 import { LetterState } from "../../interfaces/game";
 
-const Guess = ({ guess: initialGuess, state: initalState }: { state?: LetterState[]; guess: string }) => {
+const Guess = ({
+    guess: initialGuess,
+    state: initalState,
+    length,
+}: {
+    state?: LetterState[];
+    guess: string;
+    length: number;
+}) => {
     const [guess, setGuess] = useState(initialGuess);
     const [state, setState] = useState(initalState);
 
     const addExtraChar = (str: string = "") => {
         if (!str) str = "     ";
-        return str + " ".repeat(5 - clamp(str?.length ?? 0, 0, 5));
+        return str + " ".repeat(length - clamp(str?.length ?? 0, 0, 5));
     };
 
     useEffect(() => {
