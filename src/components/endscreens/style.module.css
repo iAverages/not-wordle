@@ -21,6 +21,7 @@
     height: 50%;
     flex-direction: column;
     gap: 1rem;
+    border-radius: 6px;
 }
 
 .challenge {
@@ -28,4 +29,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.error {
+}
+
+.challenge {
+}
+
+.newWord {
 }

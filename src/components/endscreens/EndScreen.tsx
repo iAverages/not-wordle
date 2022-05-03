@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import words from "../../words";
+import Button from "../button";
 import styles from "./style.module.css";
 
 export interface EndScreenProps {
@@ -25,13 +26,15 @@ const EndScreen: FC<EndScreenProps> = ({ handle, children, share }) => {
             <div className={styles.backdrop}></div>
             <div className={styles.wrapper}>
                 {children}
-                <button onClick={share}>Share results</button>
-                <button onClick={handle}>Play again</button>
+                <div className={styles.actions}>
+                    <Button onClick={share}>Share results</Button>
+                    <Button onClick={() => handle()}>Play again</Button>
+                </div>
                 <div className={styles.challenge}>
-                    <p>{err}</p>
+                    <p className={styles.error}>{err}</p>
                     <form onSubmit={challenge}>
-                        <button type="submit">Challenge a Friend</button>
-                        <input value={newWord} onChange={(e) => setNewWord(e.target.value)} />
+                        <Button type="submit">Challenge a Friend</Button>
+                        <input className={styles.newWord} value={newWord} onChange={(e) => setNewWord(e.target.value)} />
                     </form>
                 </div>
             </div>
